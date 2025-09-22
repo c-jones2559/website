@@ -9,9 +9,112 @@
   </head>
   <body>
     <h1>
-        i love women and fortnite
+    i love women and fortnite
     </h1>
     hey gamers whats up i love gaming
+    <br><br>
+    
+
+    <h2>
+      Global links
+    </h2>
+    <a href="https://cloud.cjones.cymru">
+      <button>Nextcloud</button>
+    </a>
+    <a href="https://jelly.cjones.cymru">
+      <button>Jellyfin</button>
+    </a>
+    <a href="https://sesquipedalia.cjones.cymru">
+      <button>Sesquipedalia</button>
+    </a>
+    <h3>
+      Redirects
+    </h3>
+    <a href="https://bot.cjones.cymru">
+      <button>Discord bot</button>
+    </a>
+
+    <h2>
+      Local links
+    </h2>
+    <h4>Is local ip 0 or 1:
+      <label class="switch">
+        <input type="checkbox", id="pingToggle">
+        <span class="slider"></span>
+      </label>
+    </h4>
+    
+    <a href="http://192.168.0.59:8080">
+      <button>Nextcloud</button>
+    </a>
+    <a href="http://192.168.0.59:8096">
+      <button>Jellyfin</button>
+    </a>
+    <a href="http://192.168.0.59:8083">
+      <button>Sesquipedalia</button>
+    </a>
+    <br>
+    <a href="http://192.168.0.59:81">
+      <button>NPM Admin</button>
+    </a>
+    <a href="http://192.168.0.59:8081">
+      <button>cAdvisor</button>
+    </a>
+    <a href="http://192.168.0.59:3000">
+      <button>Grafana</button>
+    </a>
+
+    <br><br>
+
+    <a id="nextcloud" href="#">
+  <button>Nextcloud</button>
+</a>
+<a id="jellyfin" href="#">
+  <button>Jellyfin</button>
+</a>
+<a id="sesquipedalia" href="#">
+  <button>Sesquipedalia</button>
+</a>
+
+<br>
+<label class="switch">
+  <input type="checkbox" id="locationSwitch">
+  <span class="slider"></span>
+</label>
+<span id="locationText">Home</span>
+
+    
+
     <script src="index.js"></script>
   </body>
 </html>
+
+<script>
+// elements
+const locationSwitch = document.getElementById("locationSwitch");
+const locationText = document.getElementById("locationText");
+
+// links
+const nextcloud = document.getElementById("nextcloud");
+const jellyfin = document.getElementById("jellyfin");
+const sesquipedalia = document.getElementById("sesquipedalia");
+
+// base IPs
+const homeIP = "192.168.0.59";
+const uniIP  = "192.168.1.59";  // change to whatever it is at uni
+
+function updateLinks() {
+  const baseIP = locationSwitch.checked ? uniIP : homeIP;
+  locationText.textContent = locationSwitch.checked ? "Uni" : "Home";
+
+  nextcloud.href = `http://${baseIP}:8080`;
+  jellyfin.href = `http://${baseIP}:8096`;
+  sesquipedalia.href = `http://${baseIP}:8083`;
+}
+
+// run on load
+updateLinks();
+
+// run when toggled
+locationSwitch.addEventListener("change", updateLinks);
+</script>
