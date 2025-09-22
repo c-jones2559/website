@@ -37,54 +37,41 @@
     <h2>
       Local links
     </h2>
-    <h4>Is local ip 0 or 1:
+    <h4>
       <label class="switch">
-        <input type="checkbox", id="pingToggle">
+        <input type="checkbox" id="locationSwitch">
         <span class="slider"></span>
       </label>
+      <span id="locationText">Home</span>
     </h4>
     
-    <a href="http://192.168.0.59:8080">
+    <a id="nextcloud" href="#">
       <button>Nextcloud</button>
     </a>
-    <a href="http://192.168.0.59:8096">
+    <a id="jellyfin" href="#">
       <button>Jellyfin</button>
     </a>
-    <a href="http://192.168.0.59:8083">
+    <a id="sesquipedalia" href="#">
       <button>Sesquipedalia</button>
     </a>
     <br>
-    <a href="http://192.168.0.59:81">
+    <a id="npm" href="#">
       <button>NPM Admin</button>
     </a>
-    <a href="http://192.168.0.59:8081">
+    <a id="cadvisor" href="#">
       <button>cAdvisor</button>
     </a>
-    <a href="http://192.168.0.59:3000">
+    <a id="grafana" href="#">
       <button>Grafana</button>
     </a>
-
-    <br><br>
-
-    <a id="nextcloud" href="#">
-  <button>Nextcloud</button>
-</a>
-<a id="jellyfin" href="#">
-  <button>Jellyfin</button>
-</a>
-<a id="sesquipedalia" href="#">
-  <button>Sesquipedalia</button>
-</a>
-
-<br>
-<label class="switch">
-  <input type="checkbox" id="locationSwitch">
-  <span class="slider"></span>
-</label>
-<span id="locationText">Home</span>
-
     
 
+
+
+
+
+    
+    <br><br>
     <script src="index.js"></script>
   </body>
 </html>
@@ -98,10 +85,13 @@ const locationText = document.getElementById("locationText");
 const nextcloud = document.getElementById("nextcloud");
 const jellyfin = document.getElementById("jellyfin");
 const sesquipedalia = document.getElementById("sesquipedalia");
+const npm = document.getElementById("npm");
+const cadvisor = document.getElementById("cadvisor");
+const grafana = document.getElementById("grafana");
 
 // base IPs
-const homeIP = "192.168.0.59";
-const uniIP  = "192.168.1.59";  // change to whatever it is at uni
+const homeIP = "192.168.1.59";
+const uniIP  = "192.168.0.59";  // change to whatever it is at uni
 
 function updateLinks() {
   const baseIP = locationSwitch.checked ? uniIP : homeIP;
@@ -110,6 +100,9 @@ function updateLinks() {
   nextcloud.href = `http://${baseIP}:8080`;
   jellyfin.href = `http://${baseIP}:8096`;
   sesquipedalia.href = `http://${baseIP}:8083`;
+  npm.href = `http://${baseIP}:81`;
+  cadvisor.href = `http://${baseIP}:8081`;
+  grafana.href = `http://${baseIP}:3000`;
 }
 
 // run on load
