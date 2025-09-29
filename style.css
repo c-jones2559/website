@@ -95,6 +95,7 @@ button {
   background: #0077cc;
   color: white;
   cursor: pointer;
+  display: inline-block;
 }
 button:hover {
   background: #005fa3;
