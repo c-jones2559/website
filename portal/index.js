@@ -18,7 +18,7 @@ function updateLinks() {
   const baseIP = locationSwitch.checked ? uniIP : homeIP;
   locationText.textContent = locationSwitch.checked ? "Uni" : "Home";
 
-  home.href = `http://${baseIP}`;
+  home.href = `http://${baseIP}:8083`;
   jellyfin.href = `http://${baseIP}:8096`;
   sesquipedalia.href = `http://${baseIP}:8084`;
   npm.href = `http://${baseIP}:81`;
