@@ -74,11 +74,12 @@ input:checked + .slider:before {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
   font-family: sans-serif;
- }
+  display: relative;
+}
 .box h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
- }
+}
 button {
   padding: 10px 20px;
   border: 1px solid #000000;
@@ -86,10 +87,10 @@ button {
   background: #0077cc;
   color: white;
   cursor: pointer;
- }
+}
 button:hover {
   background: #005fa3;
- }
+}
 
 .section {
   background-color: #333;
