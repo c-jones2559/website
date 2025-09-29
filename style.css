@@ -12,8 +12,9 @@ h1 {
     text-align: center;
     color: #444;
     font-weight: bold;
-    size: 2rem;
+    size: 4rem;
 }
+
 
 
 .switch {
@@ -50,3 +51,29 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+.box {
+  width: 300px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #333;   /* solid border */
+  border-radius: 12px;      /* rounded corners */
+  background-color: #f4f4f4; /* grey background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* drop shadow */
+  text-align: center;
+  font-family: sans-serif;
+ }
+.box h2 {
+  margin-top: 0;
+ }
+.box button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  cursor: pointer;
+ }
+.box button:hover {
+  background: #005fa3;
+ }
