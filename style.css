@@ -70,7 +70,7 @@ input:checked + .slider:before {
   margin: 20px auto;
   border: 2px solid #333;
   border-radius: 12px;
-  background-color: rgba(231, 231, 231, 0.5);
+  background-color: rgba(177, 174, 203);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
   font-family: sans-serif;
@@ -78,8 +78,8 @@ input:checked + .slider:before {
 }
 .clickable {
   cursor: pointer;
-  display: inline-block;  /* makes the link wrap the div properly */
-  text-decoration: none;  /* remove underline */
+  display: inline-block;
+  text-decoration: none;
   color: #000;
 }
 .clickable:hover {
@@ -115,6 +115,13 @@ button:hover {
   top: 0;
   left: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(360deg, rgb(54, 36, 209) 0%, rgb(73, 73, 73) 100%);
+  padding: 0;
+  margin: 0;
 }
 
 .box-img {
