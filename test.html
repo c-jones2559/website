@@ -30,6 +30,29 @@
     .box button:hover {
       background: #005fa3;
     }
+
+    .card {
+  width: 300px;           /* card width */
+  border: 1px solid #ccc; /* optional border */
+  border-radius: 10px;    /* rounded corners */
+  overflow: hidden;       /* makes sure image corners match card */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* subtle shadow */
+  padding: 10px;
+  padding-bottom: 0;
+
+}
+
+.card-img {
+  width: 100%;  /* image fills the top */
+  height: 60px; /* fixed height for top half */
+  object-fit: cover; /* keeps image from stretching */
+}
+
+.card-text {
+  padding: 10px;
+  background: #fff; /* text area background */
+}
+
   </style>
 </head>
 <body>
@@ -38,5 +61,16 @@
     <p>Welcome! I’m Chris, here are my projects:</p>
     <button onclick="location.href='projects.html'">Projects</button>
   </div>
+
+
+
+  <div class="card">
+  <img src="images/discord-logo.png" alt="Project Image" class="card-img">
+  <div class="card-text">
+    <h2>Project Title</h2>
+    <p>Short description of the project goes here.</p>
+  </div>
+</div>
+
 </body>
 </html>

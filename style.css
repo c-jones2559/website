@@ -76,6 +76,15 @@ input:checked + .slider:before {
   font-family: sans-serif;
   display: relative;
 }
+.clickable {
+  cursor: pointer;
+  display: inline-block;  /* makes the link wrap the div properly */
+  text-decoration: none;  /* remove underline */
+  color: #000;
+}
+.clickable:hover {
+  filter: brightness(0.8);
+}
 .box h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
@@ -106,4 +115,9 @@ button:hover {
   top: 0;
   left: 0;
   z-index: 10;
+}
+
+.box-img {
+  width: 100%
+
 }
