@@ -4,7 +4,6 @@ const locationText = document.getElementById("locationText");
 
 // links
 const home = document.getElementById("home");
-const nextcloud = document.getElementById("nextcloud");
 const jellyfin = document.getElementById("jellyfin");
 const sesquipedalia = document.getElementById("sesquipedalia");
 const npm = document.getElementById("npm");
@@ -13,14 +12,13 @@ const grafana = document.getElementById("grafana");
 
 // base IPs
 const homeIP = "192.168.1.59";
-const uniIP  = "192.168.0.59";  // change to whatever it is at uni
+const uniIP  = "192.168.0.59";
 
 function updateLinks() {
   const baseIP = locationSwitch.checked ? uniIP : homeIP;
   locationText.textContent = locationSwitch.checked ? "Uni" : "Home";
 
   home.href = `http://${baseIP}`;
-  nextcloud.href = `http://${baseIP}:8080`;
   jellyfin.href = `http://${baseIP}:8096`;
   sesquipedalia.href = `http://${baseIP}:8084`;
   npm.href = `http://${baseIP}:81`;
