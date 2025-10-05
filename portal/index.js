@@ -9,6 +9,7 @@ const sesquipedalia = document.getElementById("sesquipedalia");
 const npm = document.getElementById("npm");
 const cadvisor = document.getElementById("cadvisor");
 const grafana = document.getElementById("grafana");
+const qBitTorrent = document.getElementById("qBitTorrent");
 
 // base IPs
 const homeIP = "192.168.1.59";
@@ -24,6 +25,7 @@ function updateLinks() {
   npm.href = `http://${baseIP}:81`;
   cadvisor.href = `http://${baseIP}:8081`;
   grafana.href = `http://${baseIP}:3000`;
+  qBitTorrent.href = `http://${baseIP}:8082`;
 }
 
 // run on load
