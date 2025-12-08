@@ -1,118 +1,142 @@
 :root {
-  /* A modern dark theme palette */
-  --bg-body: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --text-main: #f8fafc;
+  /* Modern Dark Palette */
+  --bg-body: #0f172a;           /* Deep Slate */
+  --bg-card: rgba(30, 41, 59, 0.6); /* Glassy Card */
+  --text-main: #f1f5f9;
   --text-muted: #94a3b8;
-  --accent: #3b82f6; /* A cleaner blue */
-  --accent-glow: rgba(59, 130, 246, 0.5);
-  --banner-bg: rgba(15, 23, 42, 0.85);
+  --accent: #38bdf8;            /* Electric Blue */
+  --accent-glow: rgba(56, 189, 248, 0.3);
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  min-height: 100%; /* Better than height: 100% for scrolling */
+  min-height: 100%;
   background-color: var(--bg-body);
   color: var(--text-main);
   font-family: 'Segoe UI', system-ui, sans-serif;
   line-height: 1.6;
 }
 
-/* Remove default margins for cleaner spacing */
-h1, h2, h3 { margin-top: 0; }
-
-.banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
+/* --- THE HEADER (Fixed overlap issue) --- */
+.section.banner {
+  /* No longer 'fixed'. This lets it sit at the top naturally. */
+  position: relative; 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  
-  /* The Magic Glass Effect */
-  background-color: var(--banner-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  padding: 4rem 1rem 2rem 1rem; /* More space at top */
+  text-align: center;
 }
 
-.banner h1 {
-  font-size: 1.8rem;
-  margin: 0; /* Fixes the alignment issue */
-  background: linear-gradient(90deg, #fff, var(--accent));
+/* The circular logo image */
+.section.banner img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.section.banner img:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* "Hi, I'm Chris" Text */
+.section.banner h1 {
+  font-size: 3rem;
+  margin: 0;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; /* Text gradient */
+  color: transparent;
+  text-shadow: none; /* Removed harsh shadow */
 }
 
-/* Push the rest of the page down so it doesn't hide behind the banner */
+/* Hide the spacer since we aren't using a fixed header anymore */
 .banner-back {
-  height: 80px;
-  width: 100%;
+  display: none;
 }
 
+/* --- MAIN LAYOUT --- */
 .section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1.5rem;
   
-  /* Layout Logic */
+  /* Flexbox for the grid layout */
   display: flex;
   flex-wrap: wrap; 
   justify-content: center;
   gap: 2rem;
 }
 
-/* Force the section titles (About me, Projects) to take full width */
+/* Section Headings (About Me, Projects) */
 .section h1 {
   width: 100%;
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 2px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.5rem;
 }
 
+/* --- CARDS --- */
 a.boxlink {
   text-decoration: none;
   color: inherit;
-  /* Responsive sizing */
-  flex: 1 1 300px; /* Grow, Shrink, Base width 300px */
-  max-width: 400px;
+  /* Smart sizing: Grows to fill space, but never smaller than 280px */
+  flex: 1 1 300px;
+  max-width: 380px;
+  display: flex; /* Ensures the anchor behaves like a container */
 }
 
 .box {
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 1.5rem;
-  height: 100%; /* Ensures all cards in a row are same height */
-  transition: all 0.3s ease;
+  padding: 2rem;
+  width: 100%;
   
-  /* Content alignment */
+  /* Flex column to stack image/text/desc neatly */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
 }
 
+/* Image styling inside cards */
 .box img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.box:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px -10px var(--accent-glow);
+  max-height: 180px; /* Prevents tall images from breaking alignment */
+  object-fit: contain; /* Keeps logos from getting cropped */
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Adds depth to PNG logos */
 }
 
 .box h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+}
+
+.box:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent);
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 600px) {
+  .section.banner h1 {
+    font-size: 2.2rem;
+  }
+  .box {
+    padding: 1.5rem;
+  }
 }
