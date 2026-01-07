@@ -1,0 +1,142 @@
+:root {
+  /* Modern Dark Palette */
+  --bg-body: #0f172a;           /* Deep Slate */
+  --bg-card: rgba(30, 41, 59, 0.6); /* Glassy Card */
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;            /* Electric Blue */
+  --accent-glow: rgba(56, 189, 248, 0.3);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* --- THE HEADER (Fixed overlap issue) --- */
+.section.banner {
+  /* No longer 'fixed'. This lets it sit at the top naturally. */
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem 2rem 1rem; /* More space at top */
+  text-align: center;
+}
+
+/* The circular logo image */
+.section.banner img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.section.banner img:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* "Hi, I'm Chris" Text */
+.section.banner h1 {
+  font-size: 3rem;
+  margin: 0;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none; /* Removed harsh shadow */
+}
+
+/* Hide the spacer since we aren't using a fixed header anymore */
+.banner-back {
+  display: none;
+}
+
+/* --- MAIN LAYOUT --- */
+.section {
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1.5rem;
+  
+  /* Flexbox for the grid layout */
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Section Headings (About Me, Projects) */
+.section h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 2px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.5rem;
+}
+
+/* --- CARDS --- */
+a.boxlink {
+  text-decoration: none;
+  color: inherit;
+  /* Smart sizing: Grows to fill space, but never smaller than 280px */
+  flex: 1 1 300px;
+  max-width: 380px;
+  display: flex; /* Ensures the anchor behaves like a container */
+}
+
+.box {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  
+  /* Flex column to stack image/text/desc neatly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+/* Image styling inside cards */
+.box img {
+  width: 100%;
+  max-height: 180px; /* Prevents tall images from breaking alignment */
+  object-fit: contain; /* Keeps logos from getting cropped */
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Adds depth to PNG logos */
+}
+
+.box h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);
+}
+
+.box:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent);
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 600px) {
+  .section.banner h1 {
+    font-size: 2.2rem;
+  }
+  .box {
+    padding: 1.5rem;
+  }
+}
