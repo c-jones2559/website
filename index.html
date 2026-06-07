@@ -5,94 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chris Jones</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Local NeoBrutalism CSS file -->
+    <link rel="stylesheet" href="neobrutalism.css" />
+    
+    <!-- Google Fonts for Lexend Mega -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+    
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icon-512.jpg" type="image/png">
+    <link rel="icon" href="icon-512.png" type="image/png">
   </head>
   <body>
     
-    <div class="section banner" style="padding:1px">
-      <a href="https://cjones.cymru">
-        <img src="icon-512.jpg" alt="CJ logo" height="60px">
-      </a>
-      <h1>
-        Hi, I'm Chris!
-      </h1>
-    </div>
-    <div class="banner-back"></div>
-
-    <div class="section">
-      
-      <h1 style="margin-bottom: 0">About me</h1>
-
-      <a href="https://cjones.cymru/about-me" class="boxlink">
-        <div class="box clickable">
-          <!-- <img src="images/discord-logo.png" alt="Discord logo" height="auto" width="100%"> -->
-          <h3>Come say hi!</h3>
-          Find out how to contact me and view all my socials!
-        </div>
-      </a>
-    <!--</div>
-    <div class="section">-->
-      
-
-      <h1 style="margin-bottom: 0">Projects</h1>
-      <div class="grid-container" style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <a href="https://cjones.cymru/portal" class="boxlink">
-          <div class="box clickable">
-            <img src="images/homeserverSimple1.png" alt="Home server image featuring the Nextcloud, Jellyfin and Grafana logos" height="auto" width="100%">
-            <h3>Home server</h3>
-            I manage an active home server which hosts many different services, such as the site you're on right now!
-          </div>
+    <header>
+      <div class="logo-group">
+        <a href="https://cjones.cymru">
+          <img src="icon-512.png" alt="CJ logo" style="border-radius: 0; border: none;">
         </a>
-
-        <a href="https://sesquipedalia.cjones.cymru" class="boxlink">
-          <div class="box clickable">
-            <img src="images/Sesquipedalia.png" alt="Sesquipedalia image" height="auto" width="100%">
-            <h3>Sesquipedalia</h3>
-            Sesquipedalia is my web app which teaches you a new word obscure word every day!
-          </div>
-        </a>
-  
-        <a href="https://cjones.cymru/discord" class="boxlink">
-          <div class="box clickable">
-            <img src="images/discord-logo.png" alt="Discord logo" height="auto" width="100%">
-            <h3>Discord bot</h3>
-            I have a Discord bot that can do a variety of things, from moderation to fun commands!
-          </div>
-        </a>
-
-        <a href="https://unwrapper.cjones.cymru" class="boxlink">
-          <div class="box clickable">
-            <img src="images/spotify-logo.png" alt="Spotify logo" height="auto" width="100%">
-            <h3>Unwrapper</h3>
-            Unwrapper is my web app which is like Spotify Wrapped or Stats For Spotify, but better!
-          </div>
-        </a>
-
-        <a href="https://trucky.bluka.uk/map" class="boxlink">
-          <div class="box clickable">
-            <img src="images/solana-logo.png" alt="Solana logo" height="auto" width="80%">
-            <h3>Trucky Chain</h3>
-            <strong>Frontier Tech Hackathon w/ Solana</strong><br>
-            Trucky Chain is our lorry tracking system, built with the blockchain's immutability at its core!
-          </div>
-        </a>
-
-        <a href="https://butterfly.cjones.cymru" class="boxlink">
-          <div class="box clickable">
-            <img src="images/butterfly.png" alt="Butterfly logo" height="auto" width="80%">
-            <h3>Butterfly</h3>
-            Butterfly is an event creation and finding service, with a focus on event sustainability, accessibility, and safety. 
-          </div>
-        </a>
+        <h2 style="margin: 0;">Chris Jones</h2>
       </div>
-    </div>
+      <nav>
+        <a href="https://cjones.cymru/about-me" style="text-decoration: none;">
+          <button type="button" class="contact-btn">Contact / Socials</button>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-banner">
+        <h1>Hi, I'm Chris!</h1>
+        <p>So basically, I'm just really cool 😎</p>
+      </section>
+
+      <!-- Featured Projects Section -->
+      <section>
+        <h2><mark>Featured Projects</mark></h2>
+        <div class="grid-container">
+          
+          <a href="https://unwrapper.cjones.cymru" class="boxlink">
+            <article class="grid-article brutalist-box bg-mint">
+              <div class="img-container">
+                <img src="images/spotify-logo.png" alt="Spotify logo">
+              </div>
+              <div class="card-content">
+                <h3>Unwrapper</h3>
+                <p>Unwrapper is my web app which is like Spotify Wrapped or Stats For Spotify, but better!</p>
+              </div>
+            </article>
+          </a>
     
-    <!--<div class="section">
-      <h2>Contact</h2>
-      
-    </div>>-->
+          <a href="https://cjones.cymru/discord" class="boxlink">
+            <article class="grid-article brutalist-box bg-purple">
+              <div class="img-container">
+                <img src="images/discord-logo.png" alt="Discord logo">
+              </div>
+              <div class="card-content">
+                <h3>Discord bot</h3>
+                <p>I have a Discord bot that can do a variety of things, from moderation to fun commands!</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="https://butterfly.cjones.cymru" class="boxlink">
+            <article class="grid-article brutalist-box bg-pink">
+              <div class="img-container">
+                <img src="images/butterfly.png" alt="Butterfly logo" style="filter: brightness(0);">
+              </div>
+              <div class="card-content">
+                <h3>Butterfly</h3>
+                <p>Butterfly is an event creation and finding service, with a focus on event sustainability, accessibility, and safety.</p>
+              </div>
+            </article>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Other Projects Section -->
+      <section>
+        <h2><mark>Other Projects</mark></h2>
+        <div class="list-container">
+
+          <a href="https://cjones.cymru/portal" class="boxlink">
+            <article class="list-article brutalist-box bg-blue">
+              <div class="img-container-small">
+                <img src="images/homeserverSimple1.png" alt="Home server image">
+              </div>
+              <div class="list-content">
+                <h3>Home server</h3>
+                <p>I manage an active home server which hosts many different services, such as the site you're on right now!</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="https://sesquipedalia.cjones.cymru" class="boxlink">
+            <article class="list-article brutalist-box bg-yellow">
+              <div class="img-container-small">
+                <img src="images/Sesquipedalia.png" alt="Sesquipedalia image">
+              </div>
+              <div class="list-content">
+                <h3>Sesquipedalia</h3>
+                <p>Sesquipedalia is my web app which teaches you a new obscure word every day!</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="https://trucky.bluka.uk/map" class="boxlink">
+            <article class="list-article brutalist-box bg-orange">
+              <div class="img-container-small">
+                <img src="images/solana-logo.png" alt="Solana logo">
+              </div>
+              <div class="list-content">
+                <h3>Trucky Chain</h3>
+                <p><strong>Frontier Tech Hackathon w/ Solana</strong><br>
+                Trucky Chain is our lorry tracking system, built with the blockchain's immutability at its core!</p>
+              </div>
+            </article>
+          </a>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Generic Chunky Footer -->
+    <footer class="brutalist-box bg-yellow site-footer">
+      <h2 style="margin: 0;">Thanks for stopping by!</h2>
+      <p style="margin: 0;">Feel free to check out my links and socials below.</p>
+      <a href="https://cjones.cymru/about-me" style="text-decoration: none;">
+        <button type="button" class="contact-btn">Contact / Socials</button>
+      </a>
+      <p style="margin: 1rem 0 0 0; font-size: 0.9rem; font-weight: 700;">&copy; 2026 Chris Jones</p>
+    </footer>
 
   </body>
 </html>

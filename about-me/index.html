@@ -4,61 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Me</title>
+    <title>About Me | Chris Jones</title>
+    
+    <!-- Local NeoBrutalism CSS file -->
+    <link rel="stylesheet" href="../neobrutalism.css" />
+    
+    <!-- Google Fonts for Lexend Mega -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="../style.css">
+    
     <link rel="manifest" href="../manifest.json">
-    <link rel="icon" href="../icon-512.jpg" type="image/png">
+    <link rel="icon" href="../icon-512.png" type="image/png">
   </head>
   <body>
 
-    <div class="section banner" style="padding:1px">
-      <a href="https://cjones.cymru">
-        <img src="../icon-512.jpg" alt="CJ logo" height="60px">
-      </a>
-      <h1>
-        Hi, I'm Chris!
-      </h1>
-    </div>
-    <div class="banner-back"></div>
+    <header>
+      <div class="logo-group">
+        <a href="https://cjones.cymru">
+          <img src="../icon-512.png" alt="CJ logo" style="border-radius: 0; border: none;">
+        </a>
+        <h2 style="margin: 0;">Chris Jones</h2>
+      </div>
+      <nav>
+        <a href="https://cjones.cymru" style="text-decoration: none;">
+          <button type="button" class="contact-btn">Go Back Home</button>
+        </a>
+      </nav>
+    </header>
 
-    <div class="section">
-      <h1>Contact me</h1>
-      <div class="box">
-        <h3>Email and beyond!</h3>
-        <p>
-          There's loads of ways to contact me, including all the methods below!
-        </p>
-        <a href="#" id="contactBtn" data-user="christopher.jones2559" data-domain="gmail.com">
-          <button>Send me an email</button>
-        </a> <!--Uses fancy thing so bots can't scrape my email.-->
-        <a href="https://cjones.cymru/discord" target="_blank">
-          <button>Message my Discord bot</button>
-        </a> 
-      </div>
-      
-      <div class="box">
-        <h3>Other socials</h3>
-        <p>
-          Here's my other socials which usually aren't used for direct contact, but for learning more about me!
-        </p>
-        <a href="https://www.linkedin.com/in/chrisjones2559/" target="_blank">
-          <button>LinkedIn</button>
-        </a>
-        <a href="https://github.com/c-jones2559" target="_blank">
-          <button>GitHub</button>
-        </a>
-        <br>
-        <!-- <a href="https://cjones.cymru/about-me/cv" target="_blank">
-          <button>View CV</button>
-        </a> -->
-        <a href="https://cjones.cymru/about-me/cv/Christopher-Jones-CV.pdf" download>
-          <button>Download CV</button>
-        </a>
-      </div>
-    
-    </div>
-    
-    </div>
+    <main>
+      <!-- Reusing the hero banner style with a different color -->
+      <section class="hero-banner bg-purple">
+        <h1>Contact Me</h1>
+        <p>Let's get in touch!</p>
+      </section>
+
+      <section>
+        <div class="grid-container">
+          
+          <!-- Email & Discord Card -->
+          <article class="grid-article brutalist-box bg-mint">
+            <div class="card-content">
+              <h3>Email and beyond!</h3>
+              <p style="margin-bottom: 1.5rem;">There's loads of ways to contact me, including all the methods below!</p>
+              
+              <!-- Anti-bot email button linking to your JS -->
+              <a href="#" id="contactBtn" data-user="christopher.jones2559" data-domain="gmail.com" style="text-decoration: none; margin-bottom: 1rem; display: block;">
+                <button type="button" class="contact-btn" style="width: 100%; background-color: #fff;">Send me an email</button>
+              </a>
+              
+              <a href="https://cjones.cymru/discord" target="_blank" style="text-decoration: none; display: block;">
+                <button type="button" class="contact-btn" style="width: 100%; background-color: #fff;">Message my Discord bot</button>
+              </a> 
+            </div>
+          </article>
+          
+          <!-- Other Socials Card -->
+          <article class="grid-article brutalist-box bg-pink">
+            <div class="card-content">
+              <h3>Other socials</h3>
+              <p style="margin-bottom: 1.5rem;">Here's my other socials which usually aren't used for direct contact, but for learning more about me!</p>
+              
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                <a href="https://www.linkedin.com/in/chrisjones2559/" target="_blank" style="text-decoration: none; flex-grow: 1;">
+                  <button type="button" class="contact-btn" style="width: 100%; background-color: #fff;">LinkedIn</button>
+                </a>
+                <a href="https://github.com/c-jones2559" target="_blank" style="text-decoration: none; flex-grow: 1;">
+                  <button type="button" class="contact-btn" style="width: 100%; background-color: #fff;">GitHub</button>
+                </a>
+              </div>
+              
+              <a href="https://cjones.cymru/about-me/cv/Christopher-Jones-CV.pdf" download style="text-decoration: none; display: block; margin-top: auto;">
+                <button type="button" class="contact-btn" style="width: 100%; background-color: #ffde59;">Download CV</button>
+              </a>
+            </div>
+          </article>
+        
+        </div>
+      </section>
+    </main>
+
+    <!-- Generic Footer without the contact button -->
+    <footer class="brutalist-box bg-yellow site-footer">
+      <h2 style="margin: 0;">Thanks for stopping by!</h2>
+      <p style="margin: 0;">I hope you enjoyed checking out my projects.</p>
+      <p style="margin: 1rem 0 0 0; font-size: 0.9rem; font-weight: 700;">&copy; 2026 Chris Jones</p>
+    </footer>
+
     <script src="email.js"></script>
   </body>
 </html>

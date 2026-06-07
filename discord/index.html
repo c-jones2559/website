@@ -4,99 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Discord Bot</title>
+    <title>Discord Bot | Chris Jones</title>
+    
+    <!-- Local NeoBrutalism CSS file -->
+    <link rel="stylesheet" href="../neobrutalism.css" />
+    
+    <!-- Google Fonts for Lexend Mega -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="../style.css">
+    
     <link rel="manifest" href="../manifest.json">
-    <link rel="icon" href="../icon-512.jpg" type="image/png">
+    <link rel="icon" href="../icon-512.png" type="image/png">
+
+    <style>
+      /* Page-specific styling to make the command lists pop */
+      dl {
+        text-align: left;
+        margin-top: 1.5rem;
+      }
+      dt {
+        font-weight: 700;
+        margin-top: 1.5rem;
+        background-color: #fff;
+        border: 2px solid #000;
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        box-shadow: 2px 2px 0 #000;
+      }
+      dd {
+        margin-left: 0;
+        margin-top: 0.8rem;
+        line-height: 1.5;
+      }
+    </style>
   </head>
   <body>
 
-    <div class="section banner" style="padding:1px">
-      <a href="https://cjones.cymru">
-        <img src="../icon-512.jpg" alt="CJ logo" height="60px">
-      </a>
-      <h1>
-        Hi, I'm Chris!
-      </h1>
-    </div>
-    <div class="banner-back"></div>
+    <header>
+      <div class="logo-group">
+        <a href="https://cjones.cymru">
+          <img src="../icon-512.png" alt="CJ logo" style="border-radius: 0; border: none;">
+        </a>
+        <h2 style="margin: 0;">Chris Jones</h2>
+      </div>
+      <nav>
+        <a href="https://cjones.cymru" style="text-decoration: none;">
+          <button type="button" class="contact-btn">Go Back Home</button>
+        </a>
+      </nav>
+    </header>
 
-    <div class="section">
-      <h1>Discord Bot</h1>
-      <div class="box">
-        <h3>I have a bot!</h3>
-        <p>
-          My Discord bot features over 20 commands from moderation to fun games. <br>
+<main>
+      <section class="hero-banner bg-purple">
+        <h1>Discord Bot</h1>
+        <p>Moderation, games, and more!</p>
+      </section>
+
+      <section style="margin-bottom: 4rem;">
+        <article class="brutalist-box bg-mint" style="padding: 2rem;">
+          <h3 style="margin-top: 0;">I have a bot!</h3>
+          <p>My Discord bot features over 20 commands from moderation to fun games. <br>
           My favourite commands are tictactoe and quote, but there's a full list of them below! <br>
-          All messages sent to the bot are forwarded to my Discord account, so it's a great way to contact me!
-        </p>
-        <a href="https://cjones.cymru/discord/invite" target="_blank">
-          <button>Invite the bot!</button>
-        </a>
-        <a href="https://cjones.cymru/discord/join" target="_blank">
-          <button>Join the server!</button>
-        </a>
-      </div>
-    
-    <!-- </div>
-    <div class="section"> -->
-      <h1>Commands</h1>
-      <div class="box">
-        <h3>Normal Commands</h3>
-        These are the commands usable by anyone.
-        <dl style="text-align: left">
-          <dt><i>/dm</i></dt>
-          <dd>Sends a message to someone for you after searching for them by id or username.</dd>
-          <dt><i>/dmuser</i></dt>
-          <dd>Sends a message to someone for you after picking them from a dropdown list.</dd>
-          <dt><i>/echo</i></dt>
-          <dd>Sends back the message after the command.</dd>
-          <dt><i>/help</i></dt>
-          <dd>Displays a help message.</dd>
-          <dt><i>/info</i></dt>
-          <dd>Sends details about the bot.</dd>
-          <dt><i>/invite</i></dt>
-          <dd>Sends a link for you to add the bot to your server.</dd>
-          <dt><i>/lower</i></dt>
-          <dd>Sends the message after the command in lower case.</dd>
-          <dt><i>/online</i></dt>
-          <dd>Sends how long the bot has been online.</dd>
-          <dt><i>/ping</i></dt>
-          <dd>Sends pong and latency.</dd>
-          <dt><i>/quote</i></dt>
-          <dd>Sends a random quote from Morgan Pritchard.</dd>
-          <dt><i>/roll</i></dt>
-          <dd>Sends a random number from 1 to a given value.</dd>
-          <dt><i>/say</i></dt>
-          <dd>Sends back the message after the command and deletes your message.</dd>
-          <dt><i>/schedule</i></dt>
-          <dd>Sends a message to a given channel at a given time.</dd>
-          <dt><i>/site</i></dt>
-          <dd>Sends a link to my cool site.</dd>
-          <dt><i>/subscribe</i></dt>
-          <dd>Subscribes to daily messages.</dd>
-          <dt><i>/tictactoe</i></dt>
-          <dd>Play a game of tictactoe with another user, or against a bot.</dd>
-          <dt><i>/title</i></dt>
-          <dd>Sends back the message after the command in title case.</dd>
-          <dt><i>/unsubscribe</i></dt>
-          <dd>Unsubscribes from daily messages.</dd>
-          <dt><i>/upper</i></dt>
-          <dd>Sends back the message after the command in upper case.</dd>
-        </dl>
-      </div>
-      <div class="box">
-        <h3>Admin Commands</h3>
-        These are the commands only usable from my Discord account.
-        <dl style="text-align: left">
-          <dt><i>/broadcast</i></dt>
-          <dd>Sends a message out to all subscribers.</dd>
-          <dt><i>/force_subscriptions</i></dt>
-          <dd>Force send the daily message to all subscribers.</dd>
-          <dt><i>/view_logs</i></dt>
-          <dd>Sends recent bot logs to DMs.</dd>
-        </dl>
-      </div>
-    </div>
+          All messages sent to the bot are forwarded to my Discord account, so it's a great way to contact me!</p>
+          
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+            <a href="https://cjones.cymru/discord/invite" target="_blank" style="text-decoration: none;">
+              <button type="button" class="contact-btn" style="background-color: #fff;">Invite the bot!</button>
+            </a>
+            <a href="https://cjones.cymru/discord/join" target="_blank" style="text-decoration: none;">
+              <button type="button" class="contact-btn" style="background-color: #ffde59;">Join the server!</button>
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2><mark>Commands</mark></h2>
+        
+        <div class="list-container">
+          
+          <article class="brutalist-box bg-blue" style="padding: 2rem;">
+            <h3 style="margin-top: 0;">Normal Commands</h3>
+            <p>These are the commands usable by anyone.</p>
+            
+            <dl>
+              <dt>/dm</dt>
+              <dd>Sends a message to someone for you after searching for them by id or username.</dd>
+              
+              <dt>/dmuser</dt>
+              <dd>Sends a message to someone for you after picking them from a dropdown list.</dd>
+              
+              <dt>/echo</dt>
+              <dd>Sends back the message after the command.</dd>
+              
+              <dt>/help</dt>
+              <dd>Displays a help message.</dd>
+              
+              <dt>/info</dt>
+              <dd>Sends details about the bot.</dd>
+              
+              <dt>/invite</dt>
+              <dd>Sends a link for you to add the bot to your server.</dd>
+              
+              <dt>/lower</dt>
+              <dd>Sends the message after the command in lower case.</dd>
+              
+              <dt>/online</dt>
+              <dd>Sends how long the bot has been online.</dd>
+              
+              <dt>/ping</dt>
+              <dd>Sends pong and latency.</dd>
+              
+              <dt>/quote</dt>
+              <dd>Sends a random quote from Morgan Pritchard.</dd>
+              
+              <dt>/roll</dt>
+              <dd>Sends a random number from 1 to a given value.</dd>
+              
+              <dt>/say</dt>
+              <dd>Sends back the message after the command and deletes your message.</dd>
+              
+              <dt>/schedule</dt>
+              <dd>Sends a message to a given channel at a given time.</dd>
+              
+              <dt>/site</dt>
+              <dd>Sends a link to my cool site.</dd>
+              
+              <dt>/subscribe</dt>
+              <dd>Subscribes to daily messages.</dd>
+              
+              <dt>/tictactoe</dt>
+              <dd>Play a game of tictactoe with another user, or against a bot.</dd>
+              
+              <dt>/title</dt>
+              <dd>Sends back the message after the command in title case.</dd>
+              
+              <dt>/unsubscribe</dt>
+              <dd>Unsubscribes from daily messages.</dd>
+              
+              <dt>/upper</dt>
+              <dd>Sends back the message after the command in upper case.</dd>
+            </dl>
+          </article>
+
+          <article class="brutalist-box bg-pink" style="padding: 2rem;">
+            <h3 style="margin-top: 0;">Admin Commands</h3>
+            <p>These are the commands only usable from my Discord account.</p>
+            
+            <dl>
+              <dt>/broadcast</dt>
+              <dd>Sends a message out to all subscribers.</dd>
+              
+              <dt>/force_subscriptions</dt>
+              <dd>Force send the daily message to all subscribers.</dd>
+              
+              <dt>/view_logs</dt>
+              <dd>Sends recent bot logs to DMs.</dd>
+            </dl>
+          </article>
+
+        </div>
+      </section>
+    </main>
+    <!-- Generic Footer -->
+    <footer class="brutalist-box bg-yellow site-footer">
+      <h2 style="margin: 0;">Thanks for stopping by!</h2>
+      <p style="margin: 0;">I hope you enjoyed checking out my projects.</p>
+      <p style="margin: 1rem 0 0 0; font-size: 0.9rem; font-weight: 700;">&copy; 2026 Chris Jones</p>
+    </footer>
+
   </body>
 </html>
