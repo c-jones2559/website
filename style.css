@@ -548,7 +548,9 @@ a.boxlink {
 }
 
 [data-theme="dark"] .img-container img[alt="Butterfly logo"],
-.dark-mode .img-container img[alt="Butterfly logo"] {
+.dark-mode .img-container img[alt="Butterfly logo"],
+[data-theme="dark"] .img-container-small img[alt="Butterfly logo"],
+.dark-mode .img-container-small img[alt="Butterfly logo"] {
   filter: none !important;
 }
 
