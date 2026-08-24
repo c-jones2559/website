@@ -552,6 +552,13 @@ a.boxlink {
   filter: none !important;
 }
 
+[data-theme="dark"] .img-container img[alt="ARME project logo"],
+.dark-mode .img-container img[alt="ARME project logo"],
+[data-theme="dark"] .img-container-small img[alt="ARME project logo"],
+.dark-mode .img-container-small img[alt="ARME project logo"] {
+  filter: invert(1) brightness(1.2) !important;
+}
+
 /* ===================================
    Switch & Slider (Portal)
 =================================== */
