@@ -154,9 +154,9 @@ nav {
 [data-theme="dark"] footer .contact-btn,
 .dark-mode footer .contact-btn {
   background-color: #1e1e24 !important;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 4px 4px 0 #ffffff !important;
+  color: #ff90e8 !important;
+  border: 2px solid #ff90e8 !important;
+  box-shadow: 4px 4px 0 #ff90e8 !important;
 }
 
 [data-theme="dark"] header .contact-btn:hover,
@@ -165,15 +165,30 @@ nav {
 .dark-mode footer .contact-btn:hover {
   background-color: #272730 !important;
   transform: translate(-2px, -2px) !important;
-  box-shadow: 6px 6px 0 #ffffff !important;
+  box-shadow: 6px 6px 0 #ff90e8 !important;
 }
 
-/* Buttons inside Cards in Dark Mode */
+/* Theme Toggle Button in Dark Mode */
+[data-theme="dark"] .theme-toggle-btn,
+.dark-mode .theme-toggle-btn {
+  background-color: #1e1e24;
+  border: 2px solid #ffde59;
+  box-shadow: 4px 4px 0 #ffde59;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover,
+.dark-mode .theme-toggle-btn:hover {
+  background-color: #272730;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #ffde59;
+}
+
+/* Buttons inside Cards in Dark Mode - inherit matching accent outline */
 [data-theme="dark"] .card-content .contact-btn,
 .dark-mode .card-content .contact-btn,
 [data-theme="dark"] .brutalist-box .contact-btn,
 .dark-mode .brutalist-box .contact-btn {
-  background-color: #272730 !important;
+  background-color: #1e1e24 !important;
   color: #ffffff !important;
   border: 2px solid #ffffff !important;
   box-shadow: 3px 3px 0 #ffffff !important;
@@ -183,9 +198,75 @@ nav {
 .dark-mode .card-content .contact-btn:hover,
 [data-theme="dark"] .brutalist-box .contact-btn:hover,
 .dark-mode .brutalist-box .contact-btn:hover {
-  background-color: #3f3f46 !important;
+  background-color: #272730 !important;
   transform: translate(-2px, -2px) !important;
   box-shadow: 5px 5px 0 #ffffff !important;
+}
+
+[data-theme="dark"] .bg-mint .contact-btn,
+.dark-mode .bg-mint .contact-btn {
+  color: #88ffcc !important;
+  border-color: #88ffcc !important;
+  box-shadow: 3px 3px 0 #88ffcc !important;
+}
+[data-theme="dark"] .bg-mint .contact-btn:hover,
+.dark-mode .bg-mint .contact-btn:hover {
+  box-shadow: 5px 5px 0 #88ffcc !important;
+}
+
+[data-theme="dark"] .bg-purple .contact-btn,
+.dark-mode .bg-purple .contact-btn {
+  color: #c4a1ff !important;
+  border-color: #c4a1ff !important;
+  box-shadow: 3px 3px 0 #c4a1ff !important;
+}
+[data-theme="dark"] .bg-purple .contact-btn:hover,
+.dark-mode .bg-purple .contact-btn:hover {
+  box-shadow: 5px 5px 0 #c4a1ff !important;
+}
+
+[data-theme="dark"] .bg-pink .contact-btn,
+.dark-mode .bg-pink .contact-btn {
+  color: #ff90e8 !important;
+  border-color: #ff90e8 !important;
+  box-shadow: 3px 3px 0 #ff90e8 !important;
+}
+[data-theme="dark"] .bg-pink .contact-btn:hover,
+.dark-mode .bg-pink .contact-btn:hover {
+  box-shadow: 5px 5px 0 #ff90e8 !important;
+}
+
+[data-theme="dark"] .bg-blue .contact-btn,
+.dark-mode .bg-blue .contact-btn {
+  color: #90e0ef !important;
+  border-color: #90e0ef !important;
+  box-shadow: 3px 3px 0 #90e0ef !important;
+}
+[data-theme="dark"] .bg-blue .contact-btn:hover,
+.dark-mode .bg-blue .contact-btn:hover {
+  box-shadow: 5px 5px 0 #90e0ef !important;
+}
+
+[data-theme="dark"] .bg-yellow .contact-btn,
+.dark-mode .bg-yellow .contact-btn {
+  color: #ffde59 !important;
+  border-color: #ffde59 !important;
+  box-shadow: 3px 3px 0 #ffde59 !important;
+}
+[data-theme="dark"] .bg-yellow .contact-btn:hover,
+.dark-mode .bg-yellow .contact-btn:hover {
+  box-shadow: 5px 5px 0 #ffde59 !important;
+}
+
+[data-theme="dark"] .bg-orange .contact-btn,
+.dark-mode .bg-orange .contact-btn {
+  color: #ff9966 !important;
+  border-color: #ff9966 !important;
+  box-shadow: 3px 3px 0 #ff9966 !important;
+}
+[data-theme="dark"] .bg-orange .contact-btn:hover,
+.dark-mode .bg-orange .contact-btn:hover {
+  box-shadow: 5px 5px 0 #ff9966 !important;
 }
 
 /* ===================================
