@@ -17,6 +17,17 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../style.css">
     
+    <script>
+      (function() {
+        const saved = localStorage.getItem('theme-preference');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" href="../icon-512.png" type="image/png">
   </head>
@@ -30,6 +41,9 @@
         <h2 style="margin: 0;">Chris Jones</h2>
       </div>
       <nav>
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span> <span class="theme-text">Dark</span>
+        </button>
         <a href="https://cjones.cymru" style="text-decoration: none;">
           <button type="button" class="contact-btn">Go Back Home</button>
         </a>
@@ -96,5 +110,6 @@
     </footer>
 
     <script src="email.js"></script>
+    <script src="../theme.js" defer></script>
   </body>
 </html>
