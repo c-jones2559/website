@@ -15,7 +15,7 @@
 .dark-mode {
   --bg-body: #121214;
   --text-main: #f4f4f5;
-  --toggle-bg: #272730;
+  --toggle-bg: #1e1e24;
   --toggle-color: #ffde59;
   --btn-border: 2px solid #ffffff;
   --btn-shadow: 4px 4px 0 #ffffff;
@@ -56,13 +56,13 @@ header {
 
 .logo-group img {
   height: 50px;
-  border: 3px solid #000;
+  border: 3px solid #000000;
   border-radius: 50%;
 }
 
 [data-theme="dark"] .logo-group img,
 .dark-mode .logo-group img {
-  border: 3px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 
 nav {
@@ -104,63 +104,69 @@ nav {
   pointer-events: none;
 }
 
+/* In Light Mode: show Sun icon. In Dark Mode: show Moon icon */
 .sun-icon {
-  display: none;
+  display: block;
+  color: #000000;
 }
 
 .moon-icon {
-  display: block;
+  display: none;
 }
 
 [data-theme="dark"] .sun-icon,
 .dark-mode .sun-icon {
-  display: block;
-  color: #ffde59;
+  display: none;
 }
 
 [data-theme="dark"] .moon-icon,
 .dark-mode .moon-icon {
-  display: none;
+  display: block;
+  color: #ffde59;
 }
 
 /* Themed Contact & Nav Buttons */
 .contact-btn {
   background-color: #ff90e8;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
   padding: 0.8rem 1.5rem;
   font-family: inherit;
   font-weight: 700;
   font-size: 1rem;
-  color: #000;
+  color: #000000;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .contact-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 #000000;
 }
 
 .contact-btn:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 #000000;
 }
 
+/* Header & Footer Contact Buttons in Dark Mode */
 [data-theme="dark"] header .contact-btn,
 .dark-mode header .contact-btn,
 [data-theme="dark"] footer .contact-btn,
 .dark-mode footer .contact-btn {
-  border: 2px solid #ffffff;
-  box-shadow: 4px 4px 0 #ffffff;
+  background-color: #1e1e24 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 4px 4px 0 #ffffff !important;
 }
 
 [data-theme="dark"] header .contact-btn:hover,
 .dark-mode header .contact-btn:hover,
 [data-theme="dark"] footer .contact-btn:hover,
 .dark-mode footer .contact-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #ffffff;
+  background-color: #272730 !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0 #ffffff !important;
 }
 
 /* Buttons inside Cards in Dark Mode */
@@ -188,8 +194,8 @@ nav {
 =================================== */
 .hero-banner {
   background-color: #ffde59;
-  border: 4px solid #000;
-  box-shadow: 8px 8px 0 #000;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0 #000000;
   padding: 4rem 2rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -209,19 +215,20 @@ nav {
 
 mark {
   background-color: #ffde59;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
   padding: 0.2rem 0.8rem;
   display: inline-block;
   margin-bottom: 1rem;
 }
 
+/* Section Header Badges in Dark Mode */
 [data-theme="dark"] mark,
 .dark-mode mark {
-  background-color: #ffde59;
-  color: #000000;
-  border: 2px solid #000000;
-  box-shadow: 4px 4px 0 #ffffff;
+  background-color: #1e1e24;
+  color: #ffde59;
+  border: 2px solid #ffde59;
+  box-shadow: 4px 4px 0 #ffde59;
 }
 
 /* ===================================
@@ -235,14 +242,14 @@ a.boxlink {
 }
 
 .brutalist-box {
-  border: 4px solid #000;
-  box-shadow: 8px 8px 0 #000;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0 #000000;
   transition: all 0.2s ease;
 }
 
 .brutalist-box:hover {
   transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0 #000;
+  box-shadow: 12px 12px 0 #000000;
 }
 
 /* Pastel Card Backgrounds (Light Mode) */
