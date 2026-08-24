@@ -1,93 +1,29 @@
 /* ===================================
-   Base Variables & Themes
+   Base Variables & Core Layout
 =================================== */
 :root {
   --bg-body: #f4f4f0;
   --text-main: #000000;
-  --text-muted: #333333;
-  --border-color: #000000;
-  --shadow-color: #000000;
-
-  --bg-hero: #ffde59;
-  --hero-text: #000000;
-  --mark-bg: #ffde59;
-  --mark-text: #000000;
-
-  --bg-mint: #88ffcc;
-  --bg-purple: #c4a1ff;
-  --bg-pink: #ff90e8;
-  --bg-blue: #90e0ef;
-  --bg-yellow: #ffde59;
-  --bg-orange: #ff9966;
-
-  --card-text: #000000;
-  --img-container-bg: #ffffff;
-  --img-container-border: #000000;
-
-  --btn-contact-bg: #ff90e8;
-  --btn-contact-text: #000000;
-  --btn-alt-bg: #ffde59;
-  --btn-alt-text: #000000;
-  --btn-white-bg: #ffffff;
-  --btn-white-text: #000000;
-
   --toggle-bg: #ffde59;
-  --toggle-text: #000000;
-
-  --footer-bg: #ffde59;
-  --footer-text: #000000;
-
-  --dt-bg: #ffffff;
-  --dt-text: #000000;
-
-  --switch-bg: #ffffff;
-  --switch-knob: #000000;
-  --switch-active: #88ffcc;
+  --toggle-color: #000000;
+  --btn-border: 3px solid #000000;
+  --btn-shadow: 4px 4px 0 #000000;
+  --btn-shadow-hover: 6px 6px 0 #000000;
 }
 
 [data-theme="dark"],
 .dark-mode {
   --bg-body: #121214;
   --text-main: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --border-color: #27272a;
-  --shadow-color: #000000;
+  --toggle-bg: #272730;
+  --toggle-color: #ffde59;
+  --btn-border: 2px solid #ffffff;
+  --btn-shadow: 4px 4px 0 #ffffff;
+  --btn-shadow-hover: 6px 6px 0 #ffffff;
+}
 
-  --bg-hero: #232014;
-  --hero-text: #ffde59;
-  --mark-bg: #ffde59;
-  --mark-text: #000000;
-
-  --bg-mint: #102d24;
-  --bg-purple: #24173d;
-  --bg-pink: #34152f;
-  --bg-blue: #11283a;
-  --bg-yellow: #2d260f;
-  --bg-orange: #331c12;
-
-  --card-text: #f4f4f5;
-  --img-container-bg: #ffffff;
-  --img-container-border: #000000;
-
-  --btn-contact-bg: #ff90e8;
-  --btn-contact-text: #000000;
-  --btn-alt-bg: #ffde59;
-  --btn-alt-text: #000000;
-  --btn-white-bg: #ffffff;
-  --btn-white-text: #000000;
-
-  --toggle-bg: #c4a1ff;
-  --toggle-text: #000000;
-
-  --footer-bg: #222013;
-  --footer-text: #f4f4f5;
-
-  --dt-bg: #ffde59;
-  --dt-text: #000000;
-
-  --switch-bg: #27272a;
-  --switch-knob: #ffffff;
-  --switch-active: #88ffcc;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -100,7 +36,9 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Clean Header */
+/* ===================================
+   Header & Navigation
+=================================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -122,6 +60,11 @@ header {
   border-radius: 50%;
 }
 
+[data-theme="dark"] .logo-group img,
+.dark-mode .logo-group img {
+  border: 3px solid #ffffff;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -129,16 +72,67 @@ nav {
   flex-wrap: wrap;
 }
 
-/* Themed Buttons */
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background-color: var(--toggle-bg);
+  color: var(--toggle-color);
+  border: var(--btn-border);
+  box-shadow: var(--btn-shadow);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+.theme-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.theme-toggle-btn svg {
+  display: block;
+  pointer-events: none;
+}
+
+.sun-icon {
+  display: none;
+}
+
+.moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .sun-icon,
+.dark-mode .sun-icon {
+  display: block;
+  color: #ffde59;
+}
+
+[data-theme="dark"] .moon-icon,
+.dark-mode .moon-icon {
+  display: none;
+}
+
+/* Themed Contact & Nav Buttons */
 .contact-btn {
-  background-color: var(--btn-contact-bg);
+  background-color: #ff90e8;
   border: 3px solid #000;
   box-shadow: 4px 4px 0 #000;
   padding: 0.8rem 1.5rem;
   font-family: inherit;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--btn-contact-text);
+  color: #000;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -153,43 +147,52 @@ nav {
   box-shadow: 2px 2px 0 #000;
 }
 
-/* Theme Toggle Button */
-.theme-toggle-btn {
-  background-color: var(--toggle-bg);
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
-  padding: 0.8rem 1.2rem;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--toggle-text);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  transition: all 0.2s ease;
+[data-theme="dark"] header .contact-btn,
+.dark-mode header .contact-btn,
+[data-theme="dark"] footer .contact-btn,
+.dark-mode footer .contact-btn {
+  border: 2px solid #ffffff;
+  box-shadow: 4px 4px 0 #ffffff;
 }
 
-.theme-toggle-btn:hover {
+[data-theme="dark"] header .contact-btn:hover,
+.dark-mode header .contact-btn:hover,
+[data-theme="dark"] footer .contact-btn:hover,
+.dark-mode footer .contact-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 #ffffff;
 }
 
-.theme-toggle-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #000;
+/* Buttons inside Cards in Dark Mode */
+[data-theme="dark"] .card-content .contact-btn,
+.dark-mode .card-content .contact-btn,
+[data-theme="dark"] .brutalist-box .contact-btn,
+.dark-mode .brutalist-box .contact-btn {
+  background-color: #272730 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 3px 3px 0 #ffffff !important;
 }
 
-/* Punchy Hero Banner */
+[data-theme="dark"] .card-content .contact-btn:hover,
+.dark-mode .card-content .contact-btn:hover,
+[data-theme="dark"] .brutalist-box .contact-btn:hover,
+.dark-mode .brutalist-box .contact-btn:hover {
+  background-color: #3f3f46 !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 #ffffff !important;
+}
+
+/* ===================================
+   Hero Banner & Marks
+=================================== */
 .hero-banner {
-  background-color: var(--bg-hero);
+  background-color: #ffde59;
   border: 4px solid #000;
   box-shadow: 8px 8px 0 #000;
   padding: 4rem 2rem;
   text-align: center;
   margin-bottom: 4rem;
-  color: var(--hero-text);
   transition: all 0.2s ease;
 }
 
@@ -204,10 +207,8 @@ nav {
   margin: 0;
 }
 
-/* Punched-up Section Headers */
 mark {
-  background-color: var(--mark-bg);
-  color: var(--mark-text);
+  background-color: #ffde59;
   border: 3px solid #000;
   box-shadow: 4px 4px 0 #000;
   padding: 0.2rem 0.8rem;
@@ -215,7 +216,17 @@ mark {
   margin-bottom: 1rem;
 }
 
-/* Link Wrappers */
+[data-theme="dark"] mark,
+.dark-mode mark {
+  background-color: #ffde59;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #ffffff;
+}
+
+/* ===================================
+   Brutalist Box Cards
+=================================== */
 a.boxlink {
   text-decoration: none;
   color: inherit;
@@ -223,12 +234,10 @@ a.boxlink {
   height: 100%;
 }
 
-/* Unified Brutalist Box Styling */
 .brutalist-box {
   border: 4px solid #000;
   box-shadow: 8px 8px 0 #000;
   transition: all 0.2s ease;
-  color: var(--card-text);
 }
 
 .brutalist-box:hover {
@@ -236,113 +245,147 @@ a.boxlink {
   box-shadow: 12px 12px 0 #000;
 }
 
-/* Custom Brutalist Colors */
-.bg-mint { background-color: var(--bg-mint); }
-.bg-purple { background-color: var(--bg-purple); }
-.bg-pink { background-color: var(--bg-pink); }
-.bg-blue { background-color: var(--bg-blue); }
-.bg-yellow { background-color: var(--bg-yellow); }
-.bg-orange { background-color: var(--bg-orange); }
+/* Pastel Card Backgrounds (Light Mode) */
+.bg-mint { background-color: #88ffcc; }
+.bg-purple { background-color: #c4a1ff; }
+.bg-pink { background-color: #ff90e8; }
+.bg-blue { background-color: #90e0ef; }
+.bg-yellow { background-color: #ffde59; }
+.bg-orange { background-color: #ff9966; }
 
-/* Dark Mode Neobrutalist Borders and Hard Drop Shadows */
+/* Dark Mode Neobrutalist Cards */
 [data-theme="dark"] .hero-banner,
 .dark-mode .hero-banner {
-  border-color: #ffde59;
+  background-color: #1e1e24;
+  border: 3px solid #ffde59;
   box-shadow: 8px 8px 0 #ffde59;
 }
 
-[data-theme="dark"] mark,
-.dark-mode mark {
-  box-shadow: 4px 4px 0 #ffffff;
+[data-theme="dark"] .hero-banner h1,
+.dark-mode .hero-banner h1 {
+  color: #ffde59;
 }
 
-[data-theme="dark"] .theme-toggle-btn,
-.dark-mode .theme-toggle-btn {
-  box-shadow: 4px 4px 0 #ffffff;
-}
-[data-theme="dark"] .theme-toggle-btn:hover,
-.dark-mode .theme-toggle-btn:hover {
-  box-shadow: 6px 6px 0 #ffffff;
+[data-theme="dark"] .hero-banner p,
+.dark-mode .hero-banner p {
+  color: #d4d4d8;
 }
 
-[data-theme="dark"] header .contact-btn,
-.dark-mode header .contact-btn {
-  box-shadow: 4px 4px 0 #ffffff;
+[data-theme="dark"] .hero-banner.bg-purple,
+.dark-mode .hero-banner.bg-purple {
+  border-color: #c4a1ff;
+  box-shadow: 8px 8px 0 #c4a1ff;
 }
-[data-theme="dark"] header .contact-btn:hover,
-.dark-mode header .contact-btn:hover {
-  box-shadow: 6px 6px 0 #ffffff;
+
+[data-theme="dark"] .hero-banner.bg-purple h1,
+.dark-mode .hero-banner.bg-purple h1 {
+  color: #c4a1ff;
+}
+
+[data-theme="dark"] .hero-banner.bg-blue,
+.dark-mode .hero-banner.bg-blue {
+  border-color: #90e0ef;
+  box-shadow: 8px 8px 0 #90e0ef;
+}
+
+[data-theme="dark"] .hero-banner.bg-blue h1,
+.dark-mode .hero-banner.bg-blue h1 {
+  color: #90e0ef;
+}
+
+[data-theme="dark"] .brutalist-box,
+.dark-mode .brutalist-box {
+  background-color: #1e1e24;
+  color: #e4e4e7;
 }
 
 [data-theme="dark"] .bg-mint.brutalist-box,
 .dark-mode .bg-mint.brutalist-box {
-  border-color: #88ffcc;
-  box-shadow: 8px 8px 0 #88ffcc;
+  border: 3px solid #88ffcc;
+  box-shadow: 6px 6px 0 #88ffcc;
+}
+[data-theme="dark"] .bg-mint.brutalist-box h3,
+.dark-mode .bg-mint.brutalist-box h3 {
+  color: #88ffcc;
 }
 [data-theme="dark"] .bg-mint.brutalist-box:hover,
 .dark-mode .bg-mint.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #88ffcc;
+  box-shadow: 10px 10px 0 #88ffcc;
 }
 
 [data-theme="dark"] .bg-purple.brutalist-box,
 .dark-mode .bg-purple.brutalist-box {
-  border-color: #c4a1ff;
-  box-shadow: 8px 8px 0 #c4a1ff;
+  border: 3px solid #c4a1ff;
+  box-shadow: 6px 6px 0 #c4a1ff;
+}
+[data-theme="dark"] .bg-purple.brutalist-box h3,
+.dark-mode .bg-purple.brutalist-box h3 {
+  color: #c4a1ff;
 }
 [data-theme="dark"] .bg-purple.brutalist-box:hover,
 .dark-mode .bg-purple.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #c4a1ff;
+  box-shadow: 10px 10px 0 #c4a1ff;
 }
 
 [data-theme="dark"] .bg-pink.brutalist-box,
 .dark-mode .bg-pink.brutalist-box {
-  border-color: #ff90e8;
-  box-shadow: 8px 8px 0 #ff90e8;
+  border: 3px solid #ff90e8;
+  box-shadow: 6px 6px 0 #ff90e8;
+}
+[data-theme="dark"] .bg-pink.brutalist-box h3,
+.dark-mode .bg-pink.brutalist-box h3 {
+  color: #ff90e8;
 }
 [data-theme="dark"] .bg-pink.brutalist-box:hover,
 .dark-mode .bg-pink.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #ff90e8;
+  box-shadow: 10px 10px 0 #ff90e8;
 }
 
 [data-theme="dark"] .bg-blue.brutalist-box,
 .dark-mode .bg-blue.brutalist-box {
-  border-color: #90e0ef;
-  box-shadow: 8px 8px 0 #90e0ef;
+  border: 3px solid #90e0ef;
+  box-shadow: 6px 6px 0 #90e0ef;
+}
+[data-theme="dark"] .bg-blue.brutalist-box h3,
+.dark-mode .bg-blue.brutalist-box h3 {
+  color: #90e0ef;
 }
 [data-theme="dark"] .bg-blue.brutalist-box:hover,
 .dark-mode .bg-blue.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #90e0ef;
+  box-shadow: 10px 10px 0 #90e0ef;
 }
 
 [data-theme="dark"] .bg-yellow.brutalist-box,
 .dark-mode .bg-yellow.brutalist-box {
-  border-color: #ffde59;
-  box-shadow: 8px 8px 0 #ffde59;
+  border: 3px solid #ffde59;
+  box-shadow: 6px 6px 0 #ffde59;
+}
+[data-theme="dark"] .bg-yellow.brutalist-box h3,
+.dark-mode .bg-yellow.brutalist-box h3 {
+  color: #ffde59;
 }
 [data-theme="dark"] .bg-yellow.brutalist-box:hover,
 .dark-mode .bg-yellow.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #ffde59;
+  box-shadow: 10px 10px 0 #ffde59;
 }
 
 [data-theme="dark"] .bg-orange.brutalist-box,
 .dark-mode .bg-orange.brutalist-box {
-  border-color: #ff9966;
-  box-shadow: 8px 8px 0 #ff9966;
+  border: 3px solid #ff9966;
+  box-shadow: 6px 6px 0 #ff9966;
+}
+[data-theme="dark"] .bg-orange.brutalist-box h3,
+.dark-mode .bg-orange.brutalist-box h3 {
+  color: #ff9966;
 }
 [data-theme="dark"] .bg-orange.brutalist-box:hover,
 .dark-mode .bg-orange.brutalist-box:hover {
-  box-shadow: 12px 12px 0 #ff9966;
+  box-shadow: 10px 10px 0 #ff9966;
 }
 
-[data-theme="dark"] .site-footer,
-.dark-mode .site-footer {
-  border-color: #ffde59;
-  box-shadow: 8px 8px 0 #ffde59;
-}
-
-/* -----------------------------------
-   Featured Projects (Grid Layout)
------------------------------------- */
+/* ===================================
+   Grid & List Projects Layout
+=================================== */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -365,8 +408,8 @@ a.boxlink {
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  border: 3px solid var(--img-container-border);
-  background-color: var(--img-container-bg);
+  border: 3px solid #000000;
+  background-color: #ffffff;
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -394,9 +437,6 @@ a.boxlink {
   line-height: 1.5;
 }
 
-/* -----------------------------------
-   Other Projects (List Layout)
------------------------------------- */
 .list-container {
   display: flex;
   flex-direction: column;
@@ -419,8 +459,8 @@ a.boxlink {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--img-container-border);
-  background-color: var(--img-container-bg);
+  border: 3px solid #000000;
+  background-color: #ffffff;
   padding: 0.5rem;
   box-sizing: border-box;
 }
@@ -446,7 +486,6 @@ a.boxlink {
   line-height: 1.5;
 }
 
-/* Mobile responsiveness for the list items */
 @media (max-width: 600px) {
   .list-article {
     flex-direction: column;
@@ -454,7 +493,23 @@ a.boxlink {
   }
 }
 
-/* Switch & Slider */
+/* Image Containers in Dark Mode */
+[data-theme="dark"] .img-container,
+.dark-mode .img-container,
+[data-theme="dark"] .img-container-small,
+.dark-mode .img-container-small {
+  background-color: #272730;
+  border: 2px solid #3f3f46;
+}
+
+[data-theme="dark"] .img-container img[alt="Butterfly logo"],
+.dark-mode .img-container img[alt="Butterfly logo"] {
+  filter: none !important;
+}
+
+/* ===================================
+   Switch & Slider (Portal)
+=================================== */
 .switch {
   position: relative;
   display: inline-block;
@@ -472,9 +527,9 @@ a.boxlink {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--switch-bg);
-  border: 3px solid #000;
-  box-shadow: 2px 2px 0 #000;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
   transition: 0.2s ease;
   border-radius: 30px;
 }
@@ -486,20 +541,46 @@ a.boxlink {
   width: 14px;
   left: 4px;
   bottom: 4px;
-  background-color: var(--switch-knob);
+  background-color: #000000;
   transition: 0.2s ease;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: var(--switch-active);
+  background-color: #88ffcc;
 }
 
 input:checked + .slider:before {
   transform: translateX(24px);
 }
 
-/* Command Lists (<dl>, <dt>, <dd>) */
+[data-theme="dark"] .slider,
+.dark-mode .slider {
+  background-color: #272730;
+  border: 2px solid #ffffff;
+  box-shadow: 2px 2px 0 #ffffff;
+}
+
+[data-theme="dark"] .slider:before,
+.dark-mode .slider:before {
+  background-color: #ffffff;
+}
+
+[data-theme="dark"] input:checked + .slider,
+.dark-mode input:checked + .slider {
+  background-color: #88ffcc;
+  border-color: #88ffcc;
+  box-shadow: 2px 2px 0 #88ffcc;
+}
+
+[data-theme="dark"] input:checked + .slider:before,
+.dark-mode input:checked + .slider:before {
+  background-color: #000000;
+}
+
+/* ===================================
+   Command Lists (Discord)
+=================================== */
 dl {
   text-align: left;
   margin-top: 1.5rem;
@@ -508,12 +589,12 @@ dl {
 dt {
   font-weight: 700;
   margin-top: 1.5rem;
-  background-color: var(--dt-bg);
-  color: var(--dt-text);
-  border: 2px solid #000;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
   display: inline-block;
   padding: 0.2rem 0.6rem;
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 #000000;
 }
 
 dd {
@@ -522,7 +603,22 @@ dd {
   line-height: 1.5;
 }
 
-/* Footer Styling */
+[data-theme="dark"] dt,
+.dark-mode dt {
+  background-color: #272730;
+  color: #88ffcc;
+  border: 2px solid #88ffcc;
+  box-shadow: 2px 2px 0 #88ffcc;
+}
+
+[data-theme="dark"] dd,
+.dark-mode dd {
+  color: #e4e4e7;
+}
+
+/* ===================================
+   Footer
+=================================== */
 .site-footer {
   margin-top: 4rem;
   padding: 3rem 2rem;
@@ -531,5 +627,12 @@ dd {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  color: var(--footer-text);
+}
+
+[data-theme="dark"] .site-footer,
+.dark-mode .site-footer {
+  background-color: #1e1e24;
+  border: 3px solid #ffde59;
+  box-shadow: 8px 8px 0 #ffde59;
+  color: #f4f4f5;
 }

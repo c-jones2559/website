@@ -16,61 +16,35 @@
     } else {
       document.documentElement.classList.remove('dark-mode');
     }
-    updateToggleButtons(theme);
-  }
 
-  function updateToggleButtons(theme) {
-    const buttons = document.querySelectorAll('.theme-toggle-btn');
     const isDark = theme === 'dark';
-    buttons.forEach((btn) => {
+    document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
       btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
       btn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      const icon = btn.querySelector('.theme-icon');
-      const text = btn.querySelector('.theme-text');
-      if (icon && text) {
-        icon.textContent = isDark ? '☀️' : '🌙';
-        text.textContent = isDark ? 'Light' : 'Dark';
-      } else {
-        btn.innerHTML = isDark
-          ? '<span class="theme-icon">☀️</span> <span class="theme-text">Light</span>'
-          : '<span class="theme-icon">🌙</span> <span class="theme-text">Dark</span>';
-      }
     });
   }
 
   function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || getThemePreference();
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem(STORAGE_KEY, newTheme);
-    applyTheme(newTheme);
+    const current = document.documentElement.getAttribute('data-theme') || getThemePreference();
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(STORAGE_KEY, next);
+    applyTheme(next);
   }
 
-  // Apply immediately on script load
-  const initialTheme = getThemePreference();
-  applyTheme(initialTheme);
+  window.toggleTheme = toggleTheme;
 
-  // Bind to buttons once DOM is available
-  function initButtons() {
-    const buttons = document.querySelectorAll('.theme-toggle-btn');
-    buttons.forEach((btn) => {
-      btn.removeEventListener('click', toggleTheme);
-      btn.addEventListener('click', toggleTheme);
+  // Run immediately
+  applyTheme(getThemePreference());
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
+      btn.onclick = toggleTheme;
     });
-    updateToggleButtons(document.documentElement.getAttribute('data-theme') || getThemePreference());
-  }
+  });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initButtons);
-  } else {
-    initButtons();
-  }
-
-  // Watch for system preference changes if no manual preference is saved
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem(STORAGE_KEY)) {
       applyTheme(e.matches ? 'dark' : 'light');
     }
   });
-
-  window.toggleTheme = toggleTheme;
 })();
