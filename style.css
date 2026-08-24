@@ -100,27 +100,26 @@ nav {
 }
 
 .theme-toggle-btn svg {
-  display: block;
   pointer-events: none;
 }
 
 /* In Light Mode: show Sun icon. In Dark Mode: show Moon icon */
-.sun-icon {
+.theme-toggle-btn .sun-icon {
   display: block;
   color: #000000;
 }
 
-.moon-icon {
+.theme-toggle-btn .moon-icon {
   display: none;
 }
 
-[data-theme="dark"] .sun-icon,
-.dark-mode .sun-icon {
+[data-theme="dark"] .theme-toggle-btn .sun-icon,
+.dark-mode .theme-toggle-btn .sun-icon {
   display: none;
 }
 
-[data-theme="dark"] .moon-icon,
-.dark-mode .moon-icon {
+[data-theme="dark"] .theme-toggle-btn .moon-icon,
+.dark-mode .theme-toggle-btn .moon-icon {
   display: block;
   color: #ffde59;
 }
